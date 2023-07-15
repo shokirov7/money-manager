@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Profitcard from "../../components/profitcard/Profitcard";
 import Chart from "../../components/chart/Chart";
 import Lastprod from "../../components/lastprod/Lastprod";
+import Bar from "../../components/barchart/BarChart";
 
 function Home() {
   return (
@@ -32,6 +33,7 @@ function Home() {
                 </ul>
             </div>
           </div>
+          <Bar/>
         </div>
       </div>
     </div>

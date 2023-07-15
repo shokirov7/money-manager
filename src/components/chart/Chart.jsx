@@ -1,5 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+import './Chart.css'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -58,7 +59,7 @@ function Chart() {
 
   return (
     <div>
-      
+      <div className="chart_title">Mahsulotlar statistikasi</div>
       <Line data={data} options={options}></Line>
     </div>
   );
