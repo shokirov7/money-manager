@@ -19,7 +19,7 @@ function Chart() {
       {
         label: "Mahulot nomi",
         data: [8.2, 7.8, 2.5, 7.3, 6, 8.5, 8.2, 5.5, 0.5, 2, 22.5, 10.6],
-        backgroundColor: "aqua",
+        backgroundColor: "#fff",
         borderColor: "#000",
         pointBorderColor: "#3b3b3b",
         pointBorderWidth: 4,
@@ -58,6 +58,7 @@ function Chart() {
 
   return (
     <div>
+      
       <Line data={data} options={options}></Line>
     </div>
   );
