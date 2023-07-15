@@ -1,0 +1,22 @@
+.profitcard {
+  width: 350px;
+  height: 152px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  border-radius: 14px;
+  background: var(--grey, #f5f5f7);
+  box-shadow: 0px 20px 45px 0px #dfdce3;
+}
+.profc_value {
+  color: var(--black, #0c0b0b);
+  font-family: baloo-reg;
+  font-size: 40px;
+}
+.profc_desc {
+  color: var(--black, #0c0b0b);
+  font-family: roboto-reg;
+  font-size: 16px;
+}

@@ -1,7 +1,25 @@
-.home{
-    width: 100%;
-    min-height: 100vh;
-    padding: 55px 80px 55px 236px;
-    padding-left: 236px;
-    border: 1px solid black;
+.home {
+  width: 100%;
+  min-height: 100vh;
+  padding: 55px 80px 55px 236px;
+  padding-left: 236px;
+}
+.home_welcome {
+  color: var(--black, #0c0b0b);
+  font-family: baloo-reg;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+.home_holder {
+  display: flex;
+  justify-content: space-between;
+}
+.home_left_top {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 50px;
 }
