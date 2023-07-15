@@ -20,6 +20,18 @@
   font-family: baloo-reg;
   src: url(./assets/fonts/BalooBhai-Regular.ttf);
 }
+@font-face {
+  font-family: sans-med;
+  src: url(./assets/fonts/OpenSans_Condensed-Medium.ttf);
+}
+@font-face {
+  font-family: dm-reg;
+  src: url(./assets/fonts/DMSans_18pt-Regular.ttf);
+}
+@font-face {
+  font-family: dm-med;
+  src: url(./assets/fonts/DMSans_18pt-Medium.ttf);
+}
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
