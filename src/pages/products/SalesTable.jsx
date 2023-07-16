@@ -98,7 +98,7 @@ function SalesTable() {
 
   const handleRow = (item) => {
     const id = item.row.id;
-    navigate(`/products/${id}`);
+    navigate(`/sales/${id}`);
   };
 
   return (

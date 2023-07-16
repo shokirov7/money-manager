@@ -18,6 +18,9 @@ import Login from "./pages/login/Login";
 import { getItem } from "./helpers/persistence-log";
 import { useSelector } from "react-redux";
 import ProductId from "./pages/productsid/ProductId";
+import SotuvId from "./pages/sotuvid/SotuvId";
+import XodimId from "./pages/xodimid/XodimId";
+import FilialId from "./pages/filialid/FilialId";
 
 function App() {
   const role = getItem("role") ? getItem("role") : "user";
@@ -29,15 +32,15 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products role={role} />} />
-            <Route path="/Addproducts" element={<AddProducts />} />
             <Route path="/workers" element={<Workers role={role} />} />
-            <Route path="/Addworkers" element={<AddWorkers />} />
             <Route path="/filials" element={<Filial role={role} />} />
-            <Route path="/Addfilials" element={<AddFilial />} />
             <Route path="/statistic" element={<Stats />} />
             <Route path="/archive" element={<Archive />} />
             <Route path="/login" element={<Login />} />
             <Route path="/products/:id" element={<ProductId />} />
+            <Route path="/sales/:id" element={<SotuvId />} />
+            <Route path="/workers/:id" element={<XodimId />} />
+            <Route path="/filials/:id" element={<FilialId />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
