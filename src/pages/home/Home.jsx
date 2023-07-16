@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import Profitcard from "../../components/profitcard/Profitcard";
-import Chart from "../../components/profitcard/chart/Chart";
+import Chart from "../../components/chart/Chart";
 import Lastprod from "../../components/lastprod/Lastprod";
 
 function Home() {
