@@ -13,7 +13,7 @@
 }
 .stats_top {
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 10rem;
 }
 .stats_top input {
@@ -31,8 +31,10 @@
 }
 .stats_holder {
   margin-top: 3rem;
+  padding: 0px 130px 0px 0px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-items: end;
   gap: 4rem;
 }

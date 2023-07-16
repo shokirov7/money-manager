@@ -48,16 +48,14 @@
   width: 50px;
 }
 
-
-.filials_table_title:nth-child(2){
-	width: 350px;
+.filials_table_title:nth-child(2) {
+  width: 350px;
 }
 .filials_table_title:nth-child(3),
 .filials_table_title:nth-child(4) {
   width: 200px;
-	text-align: center;
+  text-align: center;
 }
-
 
 .filials_table_cards {
   margin-top: 20px;
@@ -80,3 +78,23 @@
   box-shadow: 0px 5px 20px 0px #f0edf6;
 }
 
+.custom-row {
+  border-radius: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #1b1b1b;
+  font-family: dm-med;
+  font-size: 18px;
+  box-shadow: 0px 20px 45px 0px #f0edf6;
+}
+.custom-data-grid {
+  padding: 0px 30px;
+  font-family: dm-med;
+  font-size: 18px;
+  overflow: auto;
+}
+.custom-viewport{
+  border: none;
+}
+.css-axafay-MuiDataGrid-virtualScroller::-webkit-scrollbar {
+  scrollbar-width: 0px;
+}
