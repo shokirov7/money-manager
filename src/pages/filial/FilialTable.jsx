@@ -30,7 +30,7 @@ function FilialTable() {
     <div className="">
       <div className="filials">
         <div style={{ background: "white" }} className="">
-          {addRow.length > 0 ? (
+          {addRow ? (
             <DataGrid
               key={addRow.length}
               rows={addRow}
