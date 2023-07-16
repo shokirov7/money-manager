@@ -23,6 +23,8 @@ function FilialTable({ role }) {
     }
   };
 
+  console.log(addRow);
+
   useEffect(() => {
     getWhareHouses();
   }, []);
