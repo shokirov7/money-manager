@@ -5,7 +5,7 @@ import './Products.css'
 function Products() {
   return (
     <div className='products'>
-      <div className="products_welcome">Mahsulotlar!</div>
+      <div className="products_welcome">Mahsulotlar</div>
       <div className="products_top">
         <Profitcard desc={"Mahsulotlar"} />
         <Profitcard desc={"Umumiy daromad"} />
@@ -17,6 +17,7 @@ function Products() {
           <div className="products_table_title">Tannarx</div>
           <div className="products_table_title">Sotuv Narx</div>
           <div className="products_table_title">Mahsulot brendi</div>
+          <button className='products_table_titles_btn'>qoshish</button>
         </div>
         <div className="products_table_cards">
           <div className="products_table_card">
