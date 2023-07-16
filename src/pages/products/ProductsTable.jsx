@@ -8,7 +8,7 @@ import {
   getProductsFailure,
   getProductsStarted,
   getProductsSuccess,
-} from "../../../reducers/product";
+} from "../../reducers/product";
 
 function ProductsTable({ role }) {
   const navigate = useNavigate();
