@@ -42,6 +42,7 @@ function FilialTable() {
                 },
               }}
               rowsPerPageOptions={[4]}
+              className="custom-data-grid"
             />
           ) : (
             <p>Loading...</p>

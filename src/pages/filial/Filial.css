@@ -48,16 +48,14 @@
   width: 50px;
 }
 
-
-.filials_table_title:nth-child(2){
-	width: 350px;
+.filials_table_title:nth-child(2) {
+  width: 350px;
 }
 .filials_table_title:nth-child(3),
 .filials_table_title:nth-child(4) {
   width: 200px;
-	text-align: center;
+  text-align: center;
 }
-
 
 .filials_table_cards {
   margin-top: 20px;
@@ -80,3 +78,6 @@
   box-shadow: 0px 5px 20px 0px #f0edf6;
 }
 
+.custom-data-grid {
+  border-radius: 20px;
+}
