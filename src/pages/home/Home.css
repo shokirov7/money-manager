@@ -1,7 +1,6 @@
 .home {
   width: 100%;
   min-height: 100vh;
-  padding-left: 35px;
 }
 .home_welcome {
   color: var(--black, #0c0b0b);
@@ -14,11 +13,40 @@
 }
 .home_holder {
   display: flex;
+  padding: 0px 35px;
   justify-content: space-between;
 }
 .home_left_top {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 40px;
   margin-bottom: 50px;
+}
+.home_right {
+  width: 440px;
+}
+.home_lp_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.home_last_products p {
+  color: var(--black, #0c0b0b);
+  font-family: baloo-reg;
+  font-size: 24px;
+}
+.home_last_products a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #2e2e2e;
+  font-family: roboto-med;
+}
+.home_last_products a:hover{
+    color: #000;
+}
+.home_products ul li{
+    list-style: none;
+    margin-bottom: 24px;
 }
