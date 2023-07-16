@@ -5,7 +5,9 @@ import { useDispatch } from 'react-redux'
 import { signUserFailure, signUserStart, signUserSuccess } from '../../reducers/auth'
 
 function Login() {
-	const [user, setUser] = useState()
+	const [isAdmin, setAdmin] = useState(
+		getItem('role') ? getItem('role') : 'user'
+	)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
@@ -18,15 +20,12 @@ function Login() {
 			dispatch(signUserStart)
 			try {
 				// if (isAdmin === 'admin') {
-					if (user.username === 'admin' && user.password === '123') {
+					// if (user.username === 'admin' && user.password === '123') {
             const {data} = await authService.userLogin(user)
 						dispatch(signUserSuccess(data))
-						console.log(data.refresh);
-						setUser(data)
-					} else {
-						alert("Siz admin nomidan kira olishingiz uchun sizda ruxsat yo'q !")
-					}
-					console.log(user);
+					// } else {
+					// 	alert("Siz admin nomidan kira olishingiz uchun sizda ruxsat yo'q !")
+					// }
 				// } else if (isAdmin === 'user') {
 					// if (user.username !== 'admin' && user.password !== '123') {
 					// 	// const { data } = await authService.userLogin(user)
@@ -49,6 +48,17 @@ function Login() {
 		<div className='login'>
 			<form class='form' onSubmit={handleSubmit}>
 				<p class='form-title'>Sign in</p>
+				<select
+					className='outline-none rounded-md bg-transparent w-full m-1 border border-[#334155]'
+					onChange={e => {
+						setAdmin(e.target.value)
+						setItem('role', e.target.value)
+					}}
+					value={isAdmin}
+				>
+					<option value='admin'>Admin</option>
+					<option value='user'>Xodim</option>
+				</select>
 				<div class='input-container'>
 					<input
 						type='text'
