@@ -4,13 +4,13 @@ import authService from "../../api/axios";
 import { columns } from "./FilialTableData.js";
 import { useNavigate } from "react-router-dom";
 
-function FilialTable() {
+function ArchiveWorkersTable() {
   const [addRow, setAddRows] = useState([]);
   const navigate = useNavigate()
 
-  const getWhareHouses = async () => {
+  const getArchiveWorkers = async () => {
     try {
-      const { data } = await authService.getWhareHouses();
+      const { data } = await authService.getArchiveWorkers();
       setAddRows(data);
     } catch (error) {
       console.log(error);
@@ -18,17 +18,17 @@ function FilialTable() {
   };
 
   useEffect(() => {
-    getWhareHouses();
+    getArchiveWorkers();
   }, []);
 
   const handleRow = item => {
 		const id = item.row.id
-		navigate(`/filials/${id}`)
+		navigate(`/workers/${id}`)
 	}
 
   return (
     <div className="">
-      <div className="filials">
+      <div className="archiveworkers">
         <div style={{ background: "white" }} className="">
           {addRow.length > 0 ? (
             <DataGrid
@@ -52,4 +52,4 @@ function FilialTable() {
   );
 }
 
-export default FilialTable;
+export default ArchiveWorkersTable;
