@@ -1,6 +1,6 @@
 .home {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 }
 .home_welcome {
   color: var(--black, #0c0b0b);
@@ -14,14 +14,14 @@
 .home_holder {
   display: flex;
   padding: 0px 35px;
-  justify-content: space-between;
+  gap: 5rem;
 }
 .home_left_top {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .home_right {
   width: 380px;
@@ -43,10 +43,10 @@
   color: #2e2e2e;
   font-family: roboto-med;
 }
-.home_last_products a:hover{
-    color: #000;
+.home_last_products a:hover {
+  color: #000;
 }
-.home_products ul li{
-    list-style: none;
-    margin-bottom: 24px;
+.home_products ul li {
+  list-style: none;
+  margin-bottom: 24px;
 }

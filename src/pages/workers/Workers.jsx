@@ -21,7 +21,7 @@ function Workers() {
           <div className="workers_table_title">Ombor</div>
           <div className="workers_table_title">KPI</div>
           <div className="workers_table_title">Tel</div>
-          <Button/>
+          <Button text={"Qo'shish"}/>
         </div>
         <div className="workers_table_cards">
           <div className="workers_table_card">

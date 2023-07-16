@@ -1,0 +1,53 @@
+.stats {
+  width: 100%;
+  padding: 20px 40px 40px 0;
+}
+.stats_welcome {
+  color: var(--black, #0c0b0b);
+  font-family: baloo-reg;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+.stats_top {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+}
+.stats_top input {
+  border: 1px solid #000;
+  padding: 10px 20px;
+  font-family: roboto-med;
+  font-size: 16px;
+  border-radius: 7px;
+}
+.input_block p {
+  font-family: roboto-bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: rgb(97, 97, 97);
+}
+.stats_holder {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 4rem;
+}
+.chart_box {
+  width: 500px;
+  height: auto;
+  display: flex;
+  align-items: end;
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--grey, #f5f5f7);
+}
+.chart_box div {
+  width: 100%;
+}
+.chart_box .chart_title {
+  display: none;
+}

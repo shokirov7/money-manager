@@ -6,7 +6,7 @@ import './Filial.css'
 function Filial() {
   return (
     <div className='filials'>
-      <div className="filials_welcome">Mahsulotlar</div>
+      <div className="filials_welcome">Omborxonalar</div>
       <div className="filials_top">
         <Profitcard desc={"Mahsulotlar"} />
         <Profitcard desc={"Umumiy daromad"} />
@@ -17,7 +17,7 @@ function Filial() {
           <div className="filials_table_title">Manzil</div>
           <div className="filials_table_title">Telefon raqami</div>
           <div className="filials_table_title">Nom</div>
-          <Button />
+          <Button text={"Qo'shish"}/>
         </div>
         <div className="filials_table_cards">
           <div className="filials_table_card">

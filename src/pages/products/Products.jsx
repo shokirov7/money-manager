@@ -18,7 +18,7 @@ function Products() {
           <div className="products_table_title">Tannarx</div>
           <div className="products_table_title">Sotuv Narx</div>
           <div className="products_table_title">Mahsulot brendi</div>
-          <Button/>
+          <Button text={"Qo'shish"}/>
         </div>
         <div className="products_table_cards">
           <div className="products_table_card">
