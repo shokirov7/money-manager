@@ -1,0 +1,82 @@
+.filials {
+  width: 100%;
+  padding: 20px 40px 40px 0;
+}
+
+.filials_welcome {
+  color: var(--black, #0c0b0b);
+  font-family: baloo-reg;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+
+.filials_top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+  margin-bottom: 4rem;
+}
+
+.filials_table {
+  width: 100%;
+  padding: 5px 20px;
+  min-height: 300px;
+  border-radius: 16px;
+}
+
+.filials_table_titles {
+  width: 100%;
+  padding: 5px 10px;
+  font-family: dm-med;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.filials_table_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.filials_table_title:nth-child(1) {
+  width: 50px;
+}
+
+
+.filials_table_title:nth-child(2){
+	width: 350px;
+}
+.filials_table_title:nth-child(3),
+.filials_table_title:nth-child(4) {
+  width: 200px;
+	text-align: center;
+}
+
+
+.filials_table_cards {
+  margin-top: 20px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filials_table_card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: dm-med;
+  border-radius: 9px;
+  border: 1px solid var(--black, #cacaca);
+  background-color: var(--grey, #f5f5f7);
+  padding: 15px 0px;
+  box-shadow: 0px 5px 20px 0px #f0edf6;
+}
+
