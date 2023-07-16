@@ -8,6 +8,9 @@ import Filial from "./pages/filial/Filial";
 import Stats from "./pages/stats/Stats";
 import Archive from "./pages/archive/Archive";
 import Sidebar from "./components/sidebar/Sidebar";
+import AddProducts from "./pages/products/addProducts/AddProducts";
+import AddWorkers from "./pages/workers/addWorkers/AddWorkers";
+import AddFilial from "./pages/filial/addFilial/AddFilial";
 
 function App() {
   return (
@@ -18,8 +21,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/Addproducts" element={<AddProducts />} />
             <Route path="/workers" element={<Workers />} />
+            <Route path="/Addworkers" element={<AddWorkers />} />
             <Route path="/filials" element={<Filial />} />
+            <Route path="/Addfilials" element={<AddFilial />} />
             <Route path="/statistic" element={<Stats />} />
             <Route path="/archive" element={<Archive />} />
             <Route path="*" element={<Navigate to="/" replace />} />

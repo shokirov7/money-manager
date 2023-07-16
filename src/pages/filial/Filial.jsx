@@ -17,7 +17,7 @@ function Filial() {
           <div className="filials_table_title">Manzil</div>
           <div className="filials_table_title">Telefon raqami</div>
           <div className="filials_table_title">Nom</div>
-          <Button text={"Qo'shish"}/>
+          <Button go={'/Addfilials'} text={"Qo'shish"}/>
         </div>
         <div className="filials_table_cards">
           <div className="filials_table_card">

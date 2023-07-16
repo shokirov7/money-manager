@@ -4,6 +4,7 @@ import Profitcard from '../../components/profitcard/Profitcard'
 import './Products.css'
 
 function Products() {
+
   return (
     <div className='products'>
       <div className="products_welcome">Mahsulotlar</div>
@@ -18,7 +19,7 @@ function Products() {
           <div className="products_table_title">Tannarx</div>
           <div className="products_table_title">Sotuv Narx</div>
           <div className="products_table_title">Mahsulot brendi</div>
-          <Button text={"Qo'shish"}/>
+          <Button go={"/Addproducts"} text={"Qo'shish"}/>
         </div>
         <div className="products_table_cards">
           <div className="products_table_card">
