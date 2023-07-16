@@ -12,7 +12,6 @@ function Workers() {
         <Profitcard desc={"Mahsulotlar"} />
         <Profitcard desc={"Umumiy daromad"} />
       </div>
-      <WorkersTable role={role}/>
     </div>
   )
 }

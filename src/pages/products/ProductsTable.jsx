@@ -10,7 +10,7 @@ import {
   getProductsSuccess,
 } from "../../reducers/product";
 
-function ProductsTable({ role }) {
+function ProductsTable() {
   const navigate = useNavigate();
 
   const [isActive, setIsActive] = useState(false);

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { columns } from "./WorkersTableData";
 import productService from "../../api/productsApi";
 
-export default function WorkersTable({ role }) {
+export default function WorkersTable() {
   const [addRow, setAddRows] = useState([]);
 
   const [name, setName] = useState("");
