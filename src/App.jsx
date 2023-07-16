@@ -17,6 +17,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Login from "./pages/login/Login";
 import { getItem } from "./helpers/persistence-log";
 import { useSelector } from "react-redux";
+import ProductId from "./pages/productsid/ProductId";
 
 function App() {
   const role = getItem("role") ? getItem("role") : "user";
@@ -33,6 +34,7 @@ function App() {
             <Route path="/statistic" element={<Stats />} />
             <Route path="/archive" element={<Archive />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/products/:id" element={<ProductId />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

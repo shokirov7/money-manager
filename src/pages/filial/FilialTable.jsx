@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import authService from "../../api/axios";
+import authServicee from "../../api/productsApi";
 import { columns } from "./FilialTableData.js";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
 
 function FilialTable({ role }) {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
   const [addRow, setAddRows] = useState([]);
+  const [nom, setNom] = useState("");
+  const [tel, setTel] = useState("");
+  const [manzil, setManzil] = useState("");
   const navigate = useNavigate();
 
   const getWhareHouses = async () => {
@@ -23,6 +27,28 @@ function FilialTable({ role }) {
     getWhareHouses();
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newRow = {
+      nom: nom,
+      tel: tel,
+      manzil: manzil,
+      deleted: false,
+    };
+
+    const settingWhareHouse = async (products) => {
+      try {
+        const { data } = await authServicee.setWhareHouse(products);
+        setAddRows((prew) => [...prew, data]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    settingWhareHouse(newRow);
+    setIsActive(!isActive);
+  };
+
   const handleRow = (item) => {
     const id = item.row.id;
     navigate(`/filials/${id}`);
@@ -31,77 +57,19 @@ function FilialTable({ role }) {
   return (
     <div className="">
       <div className="filials">
-        {role === "admin" ? (
-          <div className="add-btn">
-            {isActive ? (
-              <Button
-                onClick={() => {
-                  setIsActive(!isActive);
-                }}
-                text={"Ortga"}
-              />
-            ) : (
-              <Button
-                onClick={() => {
-                  setIsActive(isActive);
-                }}
-                text={"Mahsulot q'oshish"}
-              />
-            )}
-          </div>
-        ) : (
-          ""
-        )}
+      <div className="add-btn">
+          <button
+            onClick={() => {
+              setIsActive(!isActive);
+            }}
+            className="form-submit-btn"
+            type="submit"
+          >
+            {!isActive ? "Ortga" : "Ombor qo'shish"}
+          </button>
+        </div>
+
         {isActive ? (
-          <div className="form-container">
-            <div className="logo-container">Mahsulot qo'shish</div>
-            <form className="form">
-              <div className="form-group">
-                <label htmlFor="name">Nomi</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Enter product name"
-                  required=""
-                />
-                <label htmlFor="stock">Ombor</label>
-                <input
-                  type="text"
-                  id="stock"
-                  name="stock"
-                  placeholder="Enter stock amount"
-                  required=""
-                />
-                <label htmlFor="brand">Brend</label>
-                <input
-                  type="text"
-                  id="brand"
-                  name="brand"
-                  placeholder="Enter brand"
-                  required=""
-                />
-                <label htmlFor="date">Sana</label>
-                <input
-                  type="text"
-                  id="date"
-                  name="date"
-                  placeholder="Enter date"
-                  required=""
-                />
-              </div>
-              <button
-                onClick={() => {
-                  setIsActive(false);
-                }}
-                className="form-submit-btn"
-                type="submit"
-              >
-                Qo'shish
-              </button>
-            </form>
-          </div>
-        ) : (
           <div style={{ background: "transparent" }} className="">
             {addRow ? (
               <DataGrid
@@ -124,12 +92,51 @@ function FilialTable({ role }) {
                   border: "none",
                   fontFamily: "dm-med",
                   fontSize: "18px",
+                  height: "420px",
                   fontWeight: "bold",
                 }}
               />
             ) : (
               <p>Loading...</p>
             )}
+          </div>
+        ) : (
+          <div className="form-container">
+            <div className="logo-container">Ombor qo'shish</div>
+            <form className="form" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="name">Nomi</label>
+                <input
+                  onChange={(e) => setNom(e.target.value)}
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter product name"
+                  required=""
+                />
+                <label htmlFor="stock">Tel</label>
+                <input
+                  onChange={(e) => setTel(e.target.value)}
+                  type="text"
+                  id="stock"
+                  name="stock"
+                  placeholder="Enter stock amount"
+                  required=""
+                />
+                <label htmlFor="brand">Manzil</label>
+                <input
+                  onChange={(e) => setManzil(e.target.value)}
+                  type="text"
+                  id="brand"
+                  name="brand"
+                  placeholder="Enter brand"
+                  required=""
+                />
+              </div>
+              <button className="form-submit-btn" type="submit">
+                Qo'shish
+              </button>
+            </form>
           </div>
         )}
       </div>
