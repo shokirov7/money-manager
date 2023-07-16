@@ -42,6 +42,7 @@ function ProductsTable({ role }) {
               />
             ) : (
               <Button
+              go={'/Addproducts'}
                 onClick={() => {
                   setIsActive(isActive);
                 }}
