@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import './Chart.css'
+import "./Chart.css";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,7 +11,14 @@ import {
   Tooltip,
 } from "chart.js";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend, Tooltip);
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Legend,
+  Tooltip
+);
 
 function Chart() {
   const data = {
@@ -20,17 +27,19 @@ function Chart() {
       {
         label: "Mahulot nomi",
         data: [8.2, 7.8, 2.5, 7.3, 6, 8.5, 8.2, 5.5, 0.5, 2, 22.5, 10.6],
-        backgroundColor: "#fff",
-        borderColor: "#000",
-        pointBorderColor: "#3b3b3b",
+        backgroundColor: (context) => {
+          const gradient = context.chart.canvas
+            .getContext("2d")
+            .createLinearGradient(0, 0, 0, context.chart.height);
+          gradient.addColorStop(0, "rgba(86, 59, 255, 0.20)");
+          gradient.addColorStop(1, "rgba(86, 59, 255, 0)");
+          return gradient;
+        },
+        borderColor: "rgba(86, 59, 255, 0.50)",
+        pointBorderColor: "#5840BB",
         pointBorderWidth: 4,
-        shadowColor: [
-          "rgba(255, 0, 0, 0.7)",
-          "rgba(0, 255, 0, 0.7)",
-          "rgba(0, 0, 255, 0.7)",
-        ],
-        shadowBlur: 20,
         tension: 0.5,
+        fill: true,
       },
     ],
   };

@@ -19,16 +19,10 @@ function PolarChart() {
       {
         label: "Mahulot nomi",
         data: [8.2, 7.8, 2.5, 7.3, 6, 8.5, 8.2, 5.5, 0.5, 2, 22.5, 10.6],
-        backgroundColor: "#fff",
+        backgroundColor: ['#FFE5EE', 'rgba(86, 59, 255, 0.50)'],
         borderColor: "#000",
         pointBorderColor: "#3b3b3b",
         pointBorderWidth: 4,
-        shadowColor: [
-          "rgba(255, 0, 0, 0.7)",
-          "rgba(0, 255, 0, 0.7)",
-          "rgba(0, 0, 255, 0.7)",
-        ],
-        shadowBlur: 20,
         tension: 0.5,
       },
     ],
