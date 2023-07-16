@@ -12,7 +12,6 @@ function Filial({role}) {
         <Profitcard desc={"Mahsulotlar"} />
         <Profitcard desc={"Umumiy daromad"} />
       </div>
-      
       <FilialTable role={role}/>
     </div>
   )

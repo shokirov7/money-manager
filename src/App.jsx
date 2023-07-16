@@ -29,8 +29,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products role={role} />} />
+            <Route path="/Addproducts" element={<AddProducts />} />
             <Route path="/workers" element={<Workers role={role} />} />
+            <Route path="/Addworkers" element={<AddWorkers />} />
             <Route path="/filials" element={<Filial role={role} />} />
+            <Route path="/Addfilials" element={<AddFilial />} />
             <Route path="/statistic" element={<Stats />} />
             <Route path="/archive" element={<Archive />} />
             <Route path="/login" element={<Login />} />
