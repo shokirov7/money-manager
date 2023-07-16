@@ -3,12 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom/dist";
 import authService from "../../api/axios";
 import { columns } from "./ProductsTableData";
-import { useDispatch } from "react-redux";
-import {
-  getProductsFailure,
-  getProductsStarted,
-  getProductsSuccess,
-} from "../../reducers/product";
+
 
 function ProductsTable({ role }) {
   const navigate = useNavigate();
@@ -23,15 +18,16 @@ function ProductsTable({ role }) {
   const handleClick = () => {
     setIsActive(!isActive);
   };
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const getProductsData = async () => {
-    dispatch(getProductsStarted());
+    // dispatch(getProductsStarted());
     try {
       const { data } = await authService.getProducts();
       setAddRows(data);
     } catch (error) {
-      dispatch(getProductsFailure(error));
+      // dispatch(getProductsFailure(error));
+      console.log(error)
     }
   };
   useEffect(() => {

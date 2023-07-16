@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home/Home";
 import Products from "./pages/products/Products";
@@ -9,6 +9,7 @@ import Stats from "./pages/stats/Stats";
 import Archive from "./pages/archive/Archive";
 import Sidebar from "./components/sidebar/Sidebar";
 import Login from './pages/login/Login'
+import { useSelector } from 'react-redux'
 
 function App() {
   return (

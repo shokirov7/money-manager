@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import './Login.css'
 import authService from '../../api/axios'
 import { useDispatch } from 'react-redux'
-import { signUserStart } from '../../reducers/auth'
+import { signUserFailure, signUserStart, signUserSuccess } from '../../reducers/auth'
 
 function Login() {
-
+	const [user, setUser] = useState()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
-
     const handleSubmit = async e => {
 			e.preventDefault()
 			const user = {
@@ -20,12 +19,14 @@ function Login() {
 			try {
 				// if (isAdmin === 'admin') {
 					if (user.username === 'admin' && user.password === '123') {
-            const data = await authService.userLogin(user)
-						// const { data } = await authService.userLogin(user)
-						// dispatch(signUserSuccess(data))
+            const {data} = await authService.userLogin(user)
+						dispatch(signUserSuccess(data))
+						console.log(data.refresh);
+						setUser(data)
 					} else {
 						alert("Siz admin nomidan kira olishingiz uchun sizda ruxsat yo'q !")
 					}
+					console.log(user);
 				// } else if (isAdmin === 'user') {
 					// if (user.username !== 'admin' && user.password !== '123') {
 					// 	// const { data } = await authService.userLogin(user)
@@ -38,6 +39,8 @@ function Login() {
 				// }
 				// return
 			} catch (error) {
+        // dispatch(signUserFailure(error))
+				console.log(error);
 				// alert(error.request.response)
 			}
 		}

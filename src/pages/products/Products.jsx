@@ -5,6 +5,7 @@ import './Products.css'
 import ProductsTable from './ProductsTable'
 
 function Products() {
+  const role = "admin"
   return (
     <div className='products'>
       <div className="products_welcome">Mahsulotlar</div>
