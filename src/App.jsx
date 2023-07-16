@@ -21,6 +21,7 @@ import ProductId from "./pages/productsid/ProductId";
 import SotuvId from "./pages/sotuvid/SotuvId";
 import XodimId from "./pages/xodimid/XodimId";
 import FilialId from "./pages/filialid/FilialId";
+import XodimHome from "./pages/user/Home/XodimHome";
 
 function App() {
   const role = getItem("role") ? getItem("role") : "user";
@@ -41,6 +42,7 @@ function App() {
             <Route path="/sales/:id" element={<SotuvId />} />
             <Route path="/workers/:id" element={<XodimId />} />
             <Route path="/filials/:id" element={<FilialId />} />
+            <Route path="/homeee" element={<XodimHome />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

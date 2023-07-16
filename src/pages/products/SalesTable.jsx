@@ -40,8 +40,6 @@ function SalesTable() {
   const getProductsName = async () => {
     try {
       const { data } = await authService.getProducts();
-
-      // console.log(data)
       setNameProducts(data);
     } catch (error) {
       console.log("Xatolik !");
