@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '../../components/button/Button'
 import Profitcard from '../../components/profitcard/Profitcard'
 import './Filial.css'
+import FilialTable from './FilialTable'
 
 function Filial() {
   return (
@@ -11,7 +12,7 @@ function Filial() {
         <Profitcard desc={"Mahsulotlar"} />
         <Profitcard desc={"Umumiy daromad"} />
       </div>
-      <div className="filials_table">
+      {/* <div className="filials_table">
         <div className="filials_table_titles">
           <div className="filials_table_title">id</div>
           <div className="filials_table_title">Manzil</div>
@@ -45,7 +46,8 @@ function Filial() {
             <div className="filials_table_title">Namangan</div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <FilialTable/>
     </div>
   )
 }
