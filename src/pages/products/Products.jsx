@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../../components/button/Button'
 import Profitcard from '../../components/profitcard/Profitcard'
 import './Products.css'
 
@@ -17,7 +18,7 @@ function Products() {
           <div className="products_table_title">Tannarx</div>
           <div className="products_table_title">Sotuv Narx</div>
           <div className="products_table_title">Mahsulot brendi</div>
-          <button className='products_table_titles_btn'>qoshish</button>
+          <Button/>
         </div>
         <div className="products_table_cards">
           <div className="products_table_card">

@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../../components/button/Button'
 import Profitcard from '../../components/profitcard/Profitcard'
 import './Workers.css'
 
@@ -20,7 +21,7 @@ function Workers() {
           <div className="workers_table_title">Ombor</div>
           <div className="workers_table_title">KPI</div>
           <div className="workers_table_title">Tel</div>
-          <button className='workers_table_titles_btn'>qoshish</button>
+          <Button/>
         </div>
         <div className="workers_table_cards">
           <div className="workers_table_card">
