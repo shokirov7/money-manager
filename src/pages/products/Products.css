@@ -1,0 +1,9 @@
+.products_welcome {
+  color: var(--black, #0c0b0b);
+  font-family: baloo-reg;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 30px;
+}
