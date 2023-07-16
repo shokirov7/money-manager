@@ -49,9 +49,9 @@ function SalesTable() {
               }}
               style={{
                 border: "none",
-                fontFamily: "dm-med", // Замените на нужный вам шрифт или шрифты
-                fontSize: "18px", // Замените на нужный вам размер шрифта
-                fontWeight: "bold", // Замените на нужный вам начертание шрифта
+                fontFamily: "dm-med", 
+                fontSize: "18px", 
+                fontWeight: "bold",
               }}
             />
           ) : (

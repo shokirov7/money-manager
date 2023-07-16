@@ -5,8 +5,7 @@ import './Products.css'
 import ProductsTable from './ProductsTable'
 import SalesTable from './SalesTable'
 
-function Products() {
-  const role = "admin"
+function Products({role}) {
   return (
     <div className='products'>
       <div className="products_welcome">Mahsulotlar</div>
@@ -14,8 +13,8 @@ function Products() {
         <Profitcard desc={"Mahsulotlar"} />
         <Profitcard desc={"Umumiy daromad"} />
       </div>
-      <ProductsTable/>
-      <SalesTable/>
+      <ProductsTable role={role}/>
+      <SalesTable role={role}/>
     </div>
   )
 }

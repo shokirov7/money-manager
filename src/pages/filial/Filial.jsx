@@ -4,7 +4,7 @@ import Profitcard from '../../components/profitcard/Profitcard'
 import './Filial.css'
 import FilialTable from './FilialTable'
 
-function Filial() {
+function Filial({role}) {
   return (
     <div className='filials'>
       <div className="filials_welcome">Omborxonalar</div>
@@ -13,7 +13,7 @@ function Filial() {
         <Profitcard desc={"Umumiy daromad"} />
       </div>
       
-      <FilialTable/>
+      <FilialTable role={role}/>
     </div>
   )
 }

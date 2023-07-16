@@ -4,7 +4,7 @@ import Profitcard from '../../components/profitcard/Profitcard'
 import './Workers.css'
 import WorkersTable from './WorkersTable'
 
-function Workers() {
+function Workers({role}) {
   return (
     <div className='workers'>
       <div className="workers_welcome">Xodimlar</div>
@@ -12,7 +12,7 @@ function Workers() {
         <Profitcard desc={"Mahsulotlar"} />
         <Profitcard desc={"Umumiy daromad"} />
       </div>
-      <WorkersTable/>
+      <WorkersTable role={role}/>
     </div>
   )
 }

@@ -10,7 +10,7 @@ function Lastprod({ name, price, num }) {
       </div>
       <div className="lastprod_text">
         <div className="lastprod_name">{name}</div>
-        <div className="lastprod_price">{price}</div>
+        <div className="lastprod_price">{price} so'm</div>
       </div>
     </div>
   );
