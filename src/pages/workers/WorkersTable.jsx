@@ -42,6 +42,7 @@ function WorkersTable({role}) {
               />
             ) : (
               <Button
+              go={'/Addworkers'}
                 onClick={() => {
                   setIsActive(isActive);
                 }}

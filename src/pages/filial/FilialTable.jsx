@@ -42,6 +42,7 @@ function FilialTable({ role }) {
               />
             ) : (
               <Button
+              go={"/Addfilials"}
                 onClick={() => {
                   setIsActive(isActive);
                 }}
