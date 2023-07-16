@@ -86,7 +86,7 @@ function WorkersTable({ role }) {
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Enter product name"
+                  placeholder="Enter Lastname"
                   required=""
                 />
                 <label htmlFor="stock">Fullname</label>
@@ -95,7 +95,7 @@ function WorkersTable({ role }) {
                   type="text"
                   id="stock"
                   name="stock"
-                  placeholder="Enter stock amount"
+                  placeholder="Enter Name"
                   required=""
                 />
                 <label htmlFor="brand">KPI</label>
@@ -104,7 +104,7 @@ function WorkersTable({ role }) {
                   type="number"
                   id="brand"
                   name="brand"
-                  placeholder="Enter brand"
+                  placeholder="Enter KPI"
                   required=""
                 />
                 <label htmlFor="date">Ombor</label>
@@ -113,7 +113,7 @@ function WorkersTable({ role }) {
                   type="number"
                   id="date"
                   name="date"
-                  placeholder="Enter date"
+                  placeholder="Enter warehouse"
                   required=""
                 />
                 <label htmlFor="date">Password</label>
@@ -122,7 +122,7 @@ function WorkersTable({ role }) {
                   type="text"
                   id="date"
                   name="date"
-                  placeholder="Enter date"
+                  placeholder="Enter password"
                   required=""
                 />
                 <label htmlFor="date">Tel</label>
@@ -131,7 +131,7 @@ function WorkersTable({ role }) {
                   type="text"
                   id="date"
                   name="date"
-                  placeholder="Enter date"
+                  placeholder="Enter tel"
                   required=""
                 />
                 <label htmlFor="date">Username</label>
@@ -140,7 +140,7 @@ function WorkersTable({ role }) {
                   type="text"
                   id="date"
                   name="date"
-                  placeholder="Enter date"
+                  placeholder="Enter username"
                   required=""
                 />
               </div>

@@ -5,10 +5,11 @@ import { BsBoxFill } from "react-icons/bs";
 import { FaUserAlt, FaWarehouse } from "react-icons/fa";
 import { IoIosAnalytics } from "react-icons/io";
 import { RxExit } from "react-icons/rx";
+import { useDispatch, useSelector } from 'react-redux'
+import { logOutUser } from '../../reducers/auth'
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 import { getItem } from "../../helpers/persistence-log";
-import { useSelector } from "react-redux";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -22,6 +23,8 @@ function Sidebar() {
       navigate("/");
     }
   }, [loggedIn]);
+
+  const dispatch = useDispatch()
   return (
     <div className="sidebar">
       <div className="sidebar_logo">
@@ -45,7 +48,9 @@ function Sidebar() {
           <NavLink to="/archive">
             <BiSolidArchiveIn />
           </NavLink>
-          <button className="sidebar_exit">
+          <button onClick={() => {
+								dispatch(logOutUser())
+							}} className="sidebar_exit">
             <RxExit />
           </button>
         </div>

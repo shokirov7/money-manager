@@ -129,7 +129,7 @@ function ProductsTable({ role }) {
                   type="text"
                   id="stock"
                   name="stock"
-                  placeholder="Enter stock amount"
+                  placeholder="Enter product brand"
                   required=""
                 />
                 <label htmlFor="brand">Tannarx</label>
@@ -138,7 +138,7 @@ function ProductsTable({ role }) {
                   type="number"
                   id="brand"
                   name="brand"
-                  placeholder="Enter brand"
+                  placeholder="Enter cost price"
                   required=""
                 />
                 <label htmlFor="date">Sotuvnarx</label>
@@ -147,7 +147,7 @@ function ProductsTable({ role }) {
                   type="number"
                   id="date"
                   name="date"
-                  placeholder="Enter date"
+                  placeholder="Enter price"
                   required=""
                 />
               </div>
