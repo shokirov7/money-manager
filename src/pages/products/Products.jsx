@@ -3,6 +3,7 @@ import Button from '../../components/button/Button'
 import Profitcard from '../../components/profitcard/Profitcard'
 import './Products.css'
 import ProductsTable from './ProductsTable'
+import SalesTable from './SalesTable'
 
 function Products() {
   const role = "admin"
@@ -13,6 +14,8 @@ function Products() {
         <Profitcard desc={"Mahsulotlar"} />
         <Profitcard desc={"Umumiy daromad"} />
       </div>
+      <ProductsTable/>
+      <SalesTable/>
     </div>
   )
 }

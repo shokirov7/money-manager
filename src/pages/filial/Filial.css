@@ -92,8 +92,8 @@
   font-size: 18px;
   overflow: auto;
 }
-.custom-viewport::-webkit-scrollbar {
-  scrollbar-width: 0px;
+.custom-viewport{
+  border: none;
 }
 .css-axafay-MuiDataGrid-virtualScroller::-webkit-scrollbar {
   scrollbar-width: 0px;
