@@ -5,7 +5,7 @@ import authService from "../../api/axios";
 import { columns } from "./ProductsTableData";
 
 
-function ProductsTable({ role }) {
+function ProductsTable() {
   const navigate = useNavigate();
 
   const [isActive, setIsActive] = useState(false);

@@ -13,7 +13,6 @@ function Products() {
         <Profitcard desc={"Mahsulotlar"} />
         <Profitcard desc={"Umumiy daromad"} />
       </div>
-      <ProductsTable role={role}/>
     </div>
   )
 }
