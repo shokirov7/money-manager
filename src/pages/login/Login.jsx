@@ -1,49 +1,60 @@
-import React, { useState } from "react";
-import './Login.css'
-import authService from '../../api/axios'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { signUserFailure, signUserStart, signUserSuccess } from '../../reducers/auth'
+import { useNavigate } from 'react-router'
+import authService from '../../api/axios'
 import { getItem, setItem } from '../../helpers/persistence-log'
+import { signUserStart, signUserSuccess } from '../../reducers/auth'
+import './Login.css'
 
 function Login() {
 	const [isAdmin, setAdmin] = useState(
 		getItem('role') ? getItem('role') : 'user'
 	)
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const dispatch = useDispatch()
-    const handleSubmit = async e => {
-			e.preventDefault()
-			const user = {
-				username: username,
-				password: password,
-			}
-			dispatch(signUserStart)
-			try {
-				if (isAdmin === 'admin') {
-					if (user.username === 'admin' && user.password === '123') {
-            const {data} = await authService.userLogin(user)
-						dispatch(signUserSuccess(data))
-					} else {
-						alert("Siz admin nomidan kira olishingiz uchun sizda ruxsat yo'q !")
-					}
-				} else if (isAdmin === 'user') {
-					if (user.username !== 'admin' && user.password !== '123') {
-						const { data } = await authService.userLogin(user)
-						dispatch(signUserSuccess(data))
-						console.log(data)
-					} else {
-						alert("Siz rolni noto'g'ri tanladingiz !")
-					}
-					dispatch(getUserDetails(data))
-				}
-				return
-			} catch (error) {
-				console.log(error);
-			}
+	const [username, setUsername] = useState('')
+	const [password, setPassword] = useState('')
+	const dispatch = useDispatch()
+	const token = getItem('token')
+	const navigate = useNavigate()
+	useEffect(() => {
+		if (!token) {
+			navigate('/login')
+		} else {
+			navigate('/')
 		}
+	}, [])
 
-  return (
+	const handleSubmit = async e => {
+		e.preventDefault()
+		const user = {
+			username: username,
+			password: password,
+		}
+		dispatch(signUserStart)
+		try {
+			if (isAdmin === 'admin') {
+				if (user.username === 'admin' && user.password === '123') {
+					const { data } = await authService.userLogin(user)
+					dispatch(signUserSuccess(data))
+				} else {
+					alert("Siz admin nomidan kira olishingiz uchun sizda ruxsat yo'q !")
+				}
+			} else if (isAdmin === 'user') {
+				if (user.username !== 'admin' && user.password !== '123') {
+					const { data } = await authService.userLogin(user)
+					dispatch(signUserSuccess(data))
+					console.log(data)
+				} else {
+					alert("Siz rolni noto'g'ri tanladingiz !")
+				}
+				dispatch(getUserDetails(data))
+			}
+			return
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	return (
 		<div className='login'>
 			<form class='form' onSubmit={handleSubmit}>
 				<p class='form-title'>Sign in</p>
@@ -87,4 +98,4 @@ function Login() {
 	)
 }
 
-export default Login;
+export default Login

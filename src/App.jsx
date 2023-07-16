@@ -9,13 +9,18 @@ import Stats from "./pages/stats/Stats";
 import Archive from "./pages/archive/Archive";
 import Sidebar from "./components/sidebar/Sidebar";
 import Login from './pages/login/Login'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getItem } from './helpers/persistence-log'
+import authService from './api/axios'
+import { getUserDetails, signUserFailure } from './reducers/auth'
 
 function App() {
+	const token = getItem('token')
+
   return (
 		<div className='App'>
 			<BrowserRouter>
-				<Sidebar />
+				{token && <Sidebar />}
 				<div className='app_right'>
 					<Routes>
 						<Route path='/' element={<Home />} />
