@@ -33,10 +33,10 @@ function Chart() {
     }
   };
 
-  console.log(dataa);
+  // console.log(dataa);
 
   useEffect(() => {
-    getStats();
+    // getStats();
   }, []);
 
   const data = {

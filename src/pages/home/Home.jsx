@@ -6,6 +6,7 @@ import Chart from "../../components/chart/Chart";
 import authService from "../../api/axios";
 import Lastprod from "../../components/lastprod/Lastprod";
 import Bar from "../../components/barchart/BarChart";
+import productService from '../../api/productsApi'
 
 function Home() {
   const [dataa, setDataa] = useState([]);
@@ -18,11 +19,25 @@ function Home() {
       console.log(error);
     }
   };
+  const [data, setData] = useState(null)
+
+  const getStatsDefault = async () => {
+		const db = {
+			start_date: '2023-05-06',
+			end_date: '2023-07-10',
+			id: '',
+		}
+
+		const { data } = await productService.getAllStats(db)
+		console.log(data)
+		setData(data)
+		localStorage.setItem('total', JSON.stringify(data))
+	}
   
-  console.log(dataa);
 
   useEffect(() => {
     getProducts();
+    getStatsDefault()
   }, []);
 
   return (
