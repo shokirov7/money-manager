@@ -38,8 +38,11 @@
   border: 1px solid #e5e7eb;
   margin: 8px 0;
 }
-
-.input-container input, .input-container select {
+.input-container select {
+  margin: 10px 0px;
+}
+.input-container input,
+.input-container select {
   background-color: #fff;
   padding: 1rem;
   padding-right: 3rem;
@@ -49,7 +52,10 @@
   border-radius: 0.5rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
-
+.input-container select option {
+  font-family: dm-med;
+  font-size: 16px;
+}
 .submit {
   display: block;
   padding-top: 0.75rem;

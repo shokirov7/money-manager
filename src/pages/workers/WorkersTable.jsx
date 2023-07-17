@@ -1,29 +1,16 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { useState } from "react";
-import { useEffect } from "react";
 import authService from "../../api/axios";
-import { useNavigate } from "react-router-dom";
 import { columns } from "./WorkersTableData";
-import productService from "../../api/productsApi";
+import { useNavigate } from "react-router-dom";
+import Button from "../../components/button/Button";
 
-export default function WorkersTable() {
-  const [addRow, setAddRows] = useState([]);
-
-  const [name, setName] = useState("");
-  const [fam, setFam] = useState("");
-  const [kpi, setKpi] = useState(0);
-  const [ombor, setOmbor] = useState(0);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [tel, setTel] = useState("");
-
+function WorkersTable({role}) {
   const [isActive, setIsActive] = useState(false);
+  const [addRow, setAddRows] = useState([]);
   const navigate = useNavigate();
 
-  const [houses, setHouses] = useState([]);
-
-  const getWorkersData = async () => {
+  const getWorkers = async () => {
     try {
       const { data } = await authService.getWorkers();
       setAddRows(data);
@@ -32,198 +19,122 @@ export default function WorkersTable() {
     }
   };
 
-  const getFilialsName = async () => {
-    try {
-      const { data } = await productService.getWhareHouses();
-
-      setHouses(data);
-    } catch (error) {
-      console.log("Xatolik !");
-    }
-  };
-
   useEffect(() => {
-    getWorkersData();
-
-    getFilialsName();
+    getWorkers();
   }, []);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const newRow = {
-      username: username,
-      password: password,
-      ism: name,
-      fam: fam,
-      ombor: ombor,
-      tel: tel,
-      kpi: kpi,
-      deleted: false,
-    };
-
-    try {
-      const data = await authService.setWorkers(newRow);
-    } catch (error) {
-      console.log(error);
-    }
-
-    setIsActive(!isActive);
-  };
 
   const handleRow = (item) => {
     const id = item.row.id;
-    navigate(`/worker/${id}`);
+    navigate(`/workers/${id}`);
   };
 
   return (
-    <div>
-      <div className="flex justify-end">
-        {role === "admin" ? (
-          <button
-            onClick={() => {
-              setIsActive(!isActive);
-            }}
-            className="px-5 py-2 bg-gray-600/90 hover:bg-gray-600/40 transition-all duration-200 ease-in hover:text-black mb-2 text-base rounded-md text-white"
-          >
-            {!isActive ? "Xodim qoshish" : "orqaga"}
-          </button>
+    <div className="">
+      <div className="workers">
+      {role === "admin" ? (
+          <div className="add-btn">
+            {isActive ? (
+              <Button
+                onClick={() => {
+                  setIsActive(!isActive);
+                }}
+                text={"Ortga"}
+              />
+            ) : (
+              <Button
+                onClick={() => {
+                  setIsActive(isActive);
+                }}
+                text={"Mahsulot q'oshish"}
+              />
+            )}
+          </div>
         ) : (
           ""
         )}
-      </div>
-      {!isActive ? (
-        <div style={{ height: 400, background: "white" }} className="w-full">
-          <DataGrid
-            rows={addRow}
-            onRowClick={handleRow}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 5 },
-              },
-            }}
-            getRowClassName={() => "text-sm text-cyan-900 font-[500] "}
-            autoPageSize={true}
-            pageSizeOptions={[5, 10]}
-          />
-        </div>
-      ) : (
-        <div className="w-full flex justify-center items-center mt-10">
-          <form
-            onSubmit={handleSubmit}
-            className="!z-5 relative flex flex-col rounded-[20px] max-w-[300px] md:max-w-[600px] shadow-md
-      shadow-white bg-black/10 bg-clip-border shadow-3xl shadow-shadow-500 w-full !p-6 3xl:p-![18px]"
-          >
-            <div className="relative flex flex-col justify-between">
-              <span className="flex shadow-md mb-5 text-xs">
-                <span className="bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l">
-                  Lastname
-                </span>
+        {isActive ? (
+          <div className="form-container">
+            <div className="logo-container">Mahsulot qo'shish</div>
+            <form className="form">
+              <div className="form-group">
+                <label htmlFor="name">Nomi</label>
                 <input
-                  onChange={(e) => setFam(e.target.value)}
-                  value={fam}
-                  className="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
                   type="text"
-                  id="fullname"
-                  placeholder=""
+                  id="name"
+                  name="name"
+                  placeholder="Enter product name"
+                  required=""
                 />
-              </span>
-              <span className="flex shadow-md mb-5 text-xs">
-                <span className="bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l">
-                  Fullname
-                </span>
+                <label htmlFor="stock">Ombor</label>
                 <input
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
-                  className="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
                   type="text"
-                  id="fullname"
-                  placeholder=""
+                  id="stock"
+                  name="stock"
+                  placeholder="Enter stock amount"
+                  required=""
                 />
-              </span>
-              <span className="flex shadow-md mb-5 text-xs">
-                <span className="bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l">
-                  KPI
-                </span>
+                <label htmlFor="brand">Brend</label>
                 <input
-                  onChange={(e) => setKpi(e.target.value)}
-                  value={kpi}
-                  className="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
-                  type="number"
-                  id="fullname"
-                  placeholder=""
-                />
-              </span>
-              <span className="flex shadow-md mb-5 text-xs">
-                <span className="bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l">
-                  Ombor
-                </span>
-                <select
-                  onChange={(e) => setOmbor(e.target.value)}
-                  value={ombor}
-                  className="w-full text-base"
-                >
-                  {(houses &&
-                    houses.map((item) => (
-                      <option value={item.id}>{item.nom}</option>
-                    ))) || <option value="">Loading data...</option>}
-                </select>
-                {/* <input
-                  onChange={e => setOmbor(e.target.value)}
-                  value={ombor}
-                  className="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
-                  type="number"
-                  id="fullname"
-                  placeholder=""
-                /> */}
-              </span>
-              <span className="flex shadow-md mb-5 text-xs">
-                <span className="bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l">
-                  Password
-                </span>
-                <input
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  className="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
                   type="text"
-                  id="password"
-                  placeholder=""
+                  id="brand"
+                  name="brand"
+                  placeholder="Enter brand"
+                  required=""
                 />
-              </span>
-              <span className="flex shadow-md mb-5 text-xs">
-                <span className="bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l">
-                  Tel
-                </span>
+                <label htmlFor="date">Sana</label>
                 <input
-                  onChange={(e) => setTel(e.target.value)}
-                  value={tel}
-                  className="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
                   type="text"
-                  placeholder=""
+                  id="date"
+                  name="date"
+                  placeholder="Enter date"
+                  required=""
                 />
-              </span>
-              <span className="flex shadow-md mb-5 text-xs">
-                <span className="bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l">
-                  Username
-                </span>
-                <input
-                  onChange={(e) => setUsername(e.target.value)}
-                  value={username}
-                  className="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
-                  type="text"
-                  placeholder=""
-                />
-              </span>
+              </div>
               <button
+                onClick={() => {
+                  setIsActive(false);
+                }}
+                className="form-submit-btn"
                 type="submit"
-                className="border-2 border-indigo-500 hover:bg-indigo-500 hover:text-gray-100 mt-3 text-indigo-500 block text-center p-3 px-4 text-sm rounded cursor-pointer font-bold"
               >
-                Add
+                Qo'shish
               </button>
-            </div>
-          </form>
-        </div>
-      )}
+            </form>
+          </div>
+        ) : (
+          <div style={{ background: "transparent" }} className="">
+            {addRow ? (
+              <DataGrid
+                key={addRow.length}
+                rows={addRow}
+                columns={columns}
+                onRowClick={handleRow}
+                initialState={{
+                  pagination: {
+                    paginationModel: { page: 0, pageSize: 5 },
+                  },
+                }}
+                rowsPerPageOptions={[5]}
+                className="custom-data-grid"
+                classes={{
+                  row: "custom-row",
+                  viewport: "custom-viewport",
+                }}
+                style={{
+                  border: "none",
+                  fontFamily: "dm-med",
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                }}
+              />
+            ) : (
+              <p>Loading...</p>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
+
+export default WorkersTable;

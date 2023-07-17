@@ -5,14 +5,14 @@ const columns = [
       field: "tel",
       headerName: "Telefon raqami",
       type: "number",
-      width: 130,
+      width: 200,
     },
     {
       field: "nom",
       headerName: "Nom",
       description: "This column has a value getter and is not sortable.",
       sortable: false,
-      width: 160,
+      width: 200,
     },
     {
       field: "rasm",

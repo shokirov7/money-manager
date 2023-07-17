@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import Profitcard from "../../components/profitcard/Profitcard";
 import Chart from "../../components/chart/Chart";
+import authService from "../../api/axios";
 import Lastprod from "../../components/lastprod/Lastprod";
 import Bar from "../../components/barchart/BarChart";
 
 function Home() {
+  const [dataa, setDataa] = useState([]);
+
+  const getProducts = async () => {
+    try {
+      const { data } = await authService.getProducts();
+      setDataa(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  console.log(dataa);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <div className="home">
       <div className="home_welcome">Xush kelibsiz!</div>
@@ -25,15 +43,16 @@ function Home() {
               <Link to="/products">Barchasi &gt;</Link>
             </div>
             <div className="home_products">
-                <ul>
-                    <li><Lastprod/></li>
-                    <li><Lastprod/></li>
-                    <li><Lastprod/></li>
-                    <li><Lastprod/></li>
-                </ul>
+              <ul>
+                {dataa.slice(dataa.length - 4, dataa.length).map((item, i) => (
+                  <li key={i}>
+                    <Lastprod num={i + 1} name={item.nom} price={item.narx2} />
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-          <Bar/>
+          <Bar />
         </div>
       </div>
     </div>

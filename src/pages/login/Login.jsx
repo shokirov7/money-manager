@@ -56,8 +56,8 @@ function Login() {
 
 	return (
 		<div className='login'>
-			<form class='form' onSubmit={handleSubmit}>
-				<p class='form-title'>Sign in</p>
+			<form className='form' onSubmit={handleSubmit}>
+				<p className='form-title'>Sign in</p>
 				<div className='input-container'>
 					<select
 						className='outline-none rounded-md bg-transparent w-full m-1 border border-[#334155]'
@@ -71,7 +71,7 @@ function Login() {
 						<option value='user'>Xodim</option>
 					</select>
 				</div>
-				<div class='input-container'>
+				<div className='input-container'>
 					<input
 						type='text'
 						placeholder='Username'
@@ -81,7 +81,7 @@ function Login() {
 					/>
 					<span></span>
 				</div>
-				<div class='input-container'>
+				<div className='input-container'>
 					<input
 						type='password'
 						placeholder='Password'
@@ -90,7 +90,7 @@ function Login() {
 						onChange={e => setPassword(e.target.value)}
 					/>
 				</div>
-				<button type='submit' class='submit'>
+				<button type='submit' className='submit'>
 					Sign in
 				</button>
 			</form>

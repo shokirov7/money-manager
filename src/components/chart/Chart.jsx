@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import authService from "../../api/axios";
 import { Line } from "react-chartjs-2";
 import "./Chart.css";
 import {
@@ -21,6 +22,23 @@ ChartJS.register(
 );
 
 function Chart() {
+  const [dataa, setDataa] = useState([]);
+
+  const getStats = async () => {
+    try {
+      const { data } = await authService.getStats();
+      setDataa(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(dataa);
+
+  useEffect(() => {
+    getStats();
+  }, []);
+
   const data = {
     labels: ["May 12", "May 13", "May 14", "May 15", "May 16", "May 17"],
     datasets: [

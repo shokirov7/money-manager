@@ -1,32 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/home/Home";
-import Products from "./pages/products/Products";
-import Workers from "./pages/workers/Workers";
-import Filial from "./pages/filial/Filial";
-import Stats from "./pages/stats/Stats";
-import Archive from "./pages/archive/Archive";
-import Sidebar from "./components/sidebar/Sidebar";
-import Login from './pages/login/Login'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import './App.css'
+import Sidebar from './components/sidebar/Sidebar'
 import { getItem } from './helpers/persistence-log'
-import authService from './api/axios'
-import { getUserDetails, signUserFailure } from './reducers/auth'
+import Archive from './pages/archive/Archive'
+import Filial from './pages/filial/Filial'
+import Home from './pages/home/Home'
+import Login from './pages/login/Login'
+import Products from './pages/products/Products'
+import Stats from './pages/stats/Stats'
+import Workers from './pages/workers/Workers'
 
 function App() {
-	const token = getItem('token')
-
-  return (
+	const role = getItem('role') ? getItem('role') : 'user'
+	return (
 		<div className='App'>
 			<BrowserRouter>
-				{token && <Sidebar />}
+				<Sidebar />
 				<div className='app_right'>
 					<Routes>
 						<Route path='/' element={<Home />} />
-						<Route path='/products' element={<Products />} />
-						<Route path='/workers' element={<Workers />} />
-						<Route path='/filials' element={<Filial />} />
+						<Route path='/products' element={<Products role={role} />} />
+						<Route path='/workers' element={<Workers role={role} />} />
+						<Route path='/filials' element={<Filial role={role} />} />
 						<Route path='/statistic' element={<Stats />} />
 						<Route path='/archive' element={<Archive />} />
 						<Route path='/login' element={<Login />} />
@@ -38,4 +34,4 @@ function App() {
 	)
 }
 
-export default App;
+export default App

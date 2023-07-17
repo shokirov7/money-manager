@@ -28,13 +28,13 @@ const columns = [
     field: "ombor",
     headerName: "Ombor",
     type: "number",
-    width: 100,
+    width: 90,
   },
   {
     field: "kpi",
     headerName: "KPI",
     type: "number",
-    width: 100,
+    width: 70,
   },
   {
     field: "tel",
