@@ -6,7 +6,7 @@ function Profitcard({ desc }) {
   return (
     <div className="profitcard">
       <div className="profc_desc">{desc}</div>
-      <div className="profc_value">1 500 200</div>
+      <div className="profc_value">1 500 000</div>
     </div>
   );
 }

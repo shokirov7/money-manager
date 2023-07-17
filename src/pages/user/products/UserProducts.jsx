@@ -41,7 +41,7 @@ const UserProducts = () => {
           border: "none",
           fontFamily: "dm-med",
           fontSize: "18px",
-          height: "420px",
+          height: "250px",
           fontWeight: "bold",
         }}
       />

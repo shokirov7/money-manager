@@ -24,8 +24,8 @@ const Tarqatma = () => {
 	}, [])
 	return (
 		<div className="products">
-      <div className="products_welcome">Tarqatmalar</div>
 			<UserProducts/>
+      <div className="products_welcome">Tarqatmalar</div>
       <DataGrid
         rows={data}
         columns={columns}
@@ -44,7 +44,7 @@ const Tarqatma = () => {
           border: "none",
           fontFamily: "dm-med",
           fontSize: "18px",
-          height: "420px",
+          height: "250px",
           fontWeight: "bold",
         }}
       />
