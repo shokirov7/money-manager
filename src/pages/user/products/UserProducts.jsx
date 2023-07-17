@@ -9,13 +9,12 @@ const UserProducts = () => {
   const getProRow = async () => {
     try {
       const { data } = await productService.getProductsXodim();
-      setRows(data);
+      setRows(data.mahsulotlar);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
-  
-  console.log(rows);
 
   useEffect(() => {
     getProRow();
@@ -42,7 +41,7 @@ const UserProducts = () => {
           border: "none",
           fontFamily: "dm-med",
           fontSize: "18px",
-          height: "420px",
+          height: "250px",
           fontWeight: "bold",
         }}
       />

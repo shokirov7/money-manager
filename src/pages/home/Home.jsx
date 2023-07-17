@@ -11,6 +11,8 @@ import productService from '../../api/productsApi'
 function Home() {
   const [dataa, setDataa] = useState([]);
 
+  const [statsdata, setStatsData] = useState([])
+
   const getProducts = async () => {
     try {
       const { data } = await authService.getProducts();
@@ -29,7 +31,7 @@ function Home() {
 		}
 
 		const { data } = await productService.getAllStats(db)
-		console.log(data)
+    setStatsData(data)
 		setData(data)
 		localStorage.setItem('total', JSON.stringify(data))
 	}

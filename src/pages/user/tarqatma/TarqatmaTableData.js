@@ -11,13 +11,13 @@ const columns = [
 		width: 250,
 	},
 	{
-		field: 'ombor',
+		field: 'ombor_nomi',
 		headerName: 'Ombor',
 		type: 'number',
 		width: 200,
 	},
 	{
-		field: 'mahsulot',
+		field: 'mahsulot_nomi',
 		headerName: 'Mahsulot',
 		type: 'text',
 		width: 200,

@@ -19,6 +19,7 @@ function SalesTable() {
     try {
       const { data } = await authService.getCash();
       setAddRows(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }

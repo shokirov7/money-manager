@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import Profitcard from "../../../components/profitcard/Profitcard";
 import Chart from "../../../components/chart/Chart";
 import productService from "../../../api/productsApi";
-import Lastprod from "../../../components/lastprod/Lastprod";
 import Bar from "../../../components/barchart/BarChart";
+import Lastprod from "../../../components/lastprod/Lastprod";
 
 function XodimHome() {
   const [rows, setRows] = useState([]);
   const getProRow = async () => {
     try {
       const { data } = await productService.getProductsXodim();
-      setRows(data);
+      setRows(data.mahsulotlar);
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +43,11 @@ function XodimHome() {
             </div>
             <div className="home_products">
               <ul>
-                
+                {rows.slice(rows.length - 4, rows.length).map((item, i) => (
+                  <li key={i}>
+                    <Lastprod num={i + 1} name={item.nom} price={item.narx2} />
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
