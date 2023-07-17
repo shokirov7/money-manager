@@ -159,28 +159,29 @@ function WorkersTable({ role }) {
           <div style={{ background: "transparent" }} className="">
             {addRow ? (
               <DataGrid
-                key={addRow.length}
-                rows={addRow}
-                columns={columns}
-                onRowClick={handleRow}
-                initialState={{
-                  pagination: {
-                    paginationModel: { page: 0, pageSize: 5 },
-                  },
-                }}
-                rowsPerPageOptions={[5]}
-                className="custom-data-grid"
-                classes={{
-                  row: "custom-row",
-                  viewport: "custom-viewport",
-                }}
-                style={{
-                  border: "none",
-                  fontFamily: "dm-med",
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                }}
-              />
+              key={addRow.length}
+              rows={addRow}
+              columns={columns}
+              onRowClick={handleRow}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 5 },
+                },
+              }}
+              rowsPerPageOptions={[5]}
+              className="custom-data-grid"
+              classes={{
+                row: "custom-row",
+                viewport: "custom-viewport",
+              }}
+              style={{
+                border: "none",
+                fontFamily: "dm-med",
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            />
+            
             ) : (
               <p>Loading...</p>
             )}

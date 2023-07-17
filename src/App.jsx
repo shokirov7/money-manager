@@ -21,30 +21,41 @@ import ProductId from "./pages/productsid/ProductId";
 import SotuvId from "./pages/sotuvid/SotuvId";
 import XodimId from "./pages/xodimid/XodimId";
 import FilialId from "./pages/filialid/FilialId";
-import XodimHome from "./pages/user/Home/XodimHome";
+import XodimHome from "./pages/user/home/XodimHome";
+import UserProducts from "./pages/user/Products/UserProducts";
+import Tarqatma from "./pages/user/Tarqatma/Tarqatma";
+import Profile from "./pages/user/profile/Profile";
 
 function App() {
   const role = getItem("role") ? getItem("role") : "user";
   return (
     <div className="App">
       <BrowserRouter>
-        <Sidebar />
+        <Sidebar role={role} />
         <div className="app_right">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products role={role} />} />
-            <Route path="/workers" element={<Workers role={role} />} />
-            <Route path="/filials" element={<Filial role={role} />} />
-            <Route path="/statistic" element={<Stats />} />
-            <Route path="/archive" element={<Archive />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/products/:id" element={<ProductId />} />
-            <Route path="/sales/:id" element={<SotuvId />} />
-            <Route path="/workers/:id" element={<XodimId />} />
-            <Route path="/filials/:id" element={<FilialId />} />
-            <Route path="/homeee" element={<XodimHome />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          {role === "admin" ? (
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/workers" element={<Workers />} />
+              <Route path="/filials" element={<Filial />} />
+              <Route path="/statistic" element={<Stats />} />
+              <Route path="/archive" element={<Archive />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/products/:id" element={<ProductId />} />
+              <Route path="/sales/:id" element={<SotuvId />} />
+              <Route path="/workers/:id" element={<XodimId />} />
+              <Route path="/filials/:id" element={<FilialId />} />
+            </Routes>
+          ) : (
+            <Routes>
+              <Route path="/" element={<XodimHome />} />
+              <Route path="/products" element={<UserProducts />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/tarqatmalar" element={<Tarqatma />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          )}
         </div>
       </BrowserRouter>
     </div>
