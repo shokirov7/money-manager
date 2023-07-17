@@ -23,14 +23,10 @@ function Archive() {
       <ProductsTable />
       <h1>Xodimlar</h1>
       <WorkersTable />
-      <h1>Sotuvlar</h1>
-      <SalesTable />
       <h1>Arxiv Mahsulotlar</h1>
       <ArchiveProductsTable />
       <h1>Arxiv Xodimlar</h1>
       <ArchiveWorkersTable />
-      <h1>Arxiv Sotuvlar</h1>
-      <ArchiveFilialTable />
     </div>
   );
 }

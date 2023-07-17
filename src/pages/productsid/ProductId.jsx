@@ -40,6 +40,11 @@ function ProductId() {
       handleReturn();
     }
   };
+  const handleArchive = async id => {
+		await authService.cashProduct(id)
+
+		handleReturn()
+	}
 
   return (
     <div className="prod_id">
@@ -62,6 +67,7 @@ function ProductId() {
         </div>
         <div className="pci_btn">
           <button onClick={()=> {navigate("/products");}}>Ortga</button>
+          <button onClick={() => handleArchive(product.id)}>Arxivlash</button>
           <button onClick={() => handleRemove(product.id)}>O'chirish</button>
         </div>
       </div>

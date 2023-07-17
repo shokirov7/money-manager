@@ -104,7 +104,14 @@ const authService = {
 
 	async cashDelete(id) {
 		await axios.delete(`/main/ombor/cash-delete/${id}/`)
+	},
+	async cashWorker(id) {
+		await axios.delete(`/user/xodim/cash-delete/${id}/`)
+	},
+	async cashProduct(id) {
+		await axios.delete(`/main/mahsulot/cash-delete/${id}/`)
 	}
 }
+
 
 export default authService

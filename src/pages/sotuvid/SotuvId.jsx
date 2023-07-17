@@ -30,6 +30,11 @@ function SotuvId() {
 
     handleReturn();
   };
+  const handleArchive = async (id) => {
+    await productService.CashRemove(id);
+
+    handleReturn();
+  };
 
   return (
     <div className="prod_id">
@@ -62,6 +67,7 @@ function SotuvId() {
           >
             Ortga
           </button>
+          <button onClick={() => handleArchive(cash.id)}>O'chirish</button>
           <button onClick={() => handleRemove(cash.id)}>O'chirish</button>
         </div>
       </div>
