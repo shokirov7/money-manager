@@ -19,13 +19,13 @@ Chart.register(
   Tooltip
 );
 
-function Nut() {
+function Nut({diagram}) {
   const data = {
-    labels: ["May 12", "May 13", "May 14", "May 15", "May 16", "May 17"],
+    labels: Object.keys(diagram),
     datasets: [
       {
         label: "Mahulot nomi",
-        data: [8.2, 7.8, 2.5, 7.3, 6, 8.5, 8.2, 5.5, 0.5, 2, 22.5, 10.6],
+        data: Object.values(diagram),
         backgroundColor: (context) => {
           const gradient = context.chart.canvas
             .getContext("2d")

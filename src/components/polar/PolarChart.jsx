@@ -12,21 +12,21 @@ import {
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend, Tooltip);
 
-function PolarChart() {
+function PolarChart({diagram}) {
   const data = {
-    labels: ["May 12", "May 13", "May 14", "May 15", "May 16", "May 17"],
-    datasets: [
-      {
-        label: "Mahulot nomi",
-        data: [8.2, 7.8, 2.5, 7.3, 6, 8.5, 8.2, 5.5, 0.5, 2, 22.5, 10.6],
-        backgroundColor: ['#FFE5EE', 'rgba(86, 59, 255, 0.50)'],
-        borderColor: "#000",
-        pointBorderColor: "#3b3b3b",
-        pointBorderWidth: 4,
-        tension: 0.5,
-      },
-    ],
-  };
+		labels: Object.keys(diagram),
+		datasets: [
+			{
+				label: 'Mahulot nomi',
+				data: Object.values(diagram),
+				backgroundColor: ['#FFE5EE', 'rgba(86, 59, 255, 0.50)'],
+				borderColor: '#000',
+				pointBorderColor: '#3b3b3b',
+				pointBorderWidth: 4,
+				tension: 0.5,
+			},
+		],
+	}
 
   const options = {
     plugins: {

@@ -41,37 +41,45 @@ function Home() {
   }, []);
 
   return (
-    <div className="home">
-      <div className="home_welcome">Xush kelibsiz!</div>
-      <div className="home_holder">
-        <div className="home_left">
-          <div className="home_left_top">
-            <Profitcard desc={"Mahsulotlar"} />
-            <Profitcard desc={"Umumiy daromad"} />
-          </div>
-          <Chart />
-        </div>
-        <div className="home_right">
-          <div className="home_last_products">
-            <div className="home_lp_top">
-              <p>Oxirgi mahsulotlar</p>
-              <Link to="/products">Barchasi &gt;</Link>
-            </div>
-            <div className="home_products">
-              <ul>
-                {dataa.slice(dataa.length - 4, dataa.length).map((item, i) => (
-                  <li key={i}>
-                    <Lastprod num={i + 1} name={item.nom} price={item.narx2} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <Bar />
-        </div>
-      </div>
-    </div>
-  );
+		<div className='home'>
+			<div className='home_welcome'>Xush kelibsiz!</div>
+			<div className='home_holder'>
+				<div className='home_left'>
+					<div className='home_left_top'>
+						<Profitcard
+							type={'dona'}
+							db={data?.mahsulotlar_soni}
+							desc={'Mahsulotlar'}
+						/>
+						<Profitcard
+							type={"so'm"}
+							db={data?.umumiy_daromad}
+							desc={'Umumiy daromad'}
+						/>
+					</div>
+					{data && <Chart diagram={data?.mahsulot_diagram} />}
+				</div>
+				<div className='home_right'>
+					<div className='home_last_products'>
+						<div className='home_lp_top'>
+							<p>Oxirgi mahsulotlar</p>
+							<Link to='/products'>Barchasi &gt;</Link>
+						</div>
+						<div className='home_products'>
+							<ul>
+								{dataa.slice(dataa.length - 4, dataa.length).map((item, i) => (
+									<li key={i}>
+										<Lastprod num={i + 1} name={item.nom} price={item.narx2} />
+									</li>
+								))}
+							</ul>
+						</div>
+					</div>
+					<Bar />
+				</div>
+			</div>
+		</div>
+	)
 }
 
 export default Home;
