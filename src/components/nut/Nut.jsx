@@ -34,7 +34,7 @@ function Nut() {
           gradient.addColorStop(1, "rgba(150, 0, 147, 0)"); 
           return gradient;
         },
-        borderColor: "#24D6A5",
+        borderColor: "rgba(150, 0, 147, 0.3) ",
         pointBorderColor: "#24D6A5",
         pointBorderWidth: 4,
         tension: 0.5,
