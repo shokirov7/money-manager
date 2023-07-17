@@ -29,7 +29,7 @@ function Sidebar({ role }) {
   return (
     <div className="sidebar">
       <div className="sidebar_logo">
-        <img src="./src/assets/img/logo.png" alt="" />
+        <img src="https://media1.giphy.com/avatars/MetaverseMarauders/zA5ZUvWBXyGO.png" alt="" />
         {role === 'admin' ? (
           <div className="sidebar_links">
             <NavLink to="/">
