@@ -30,6 +30,11 @@ function XodimId() {
 
 		handleReturn()
 	}
+  const handleArchive = async id => {
+		await authService.cashWorker(id)
+
+		handleReturn()
+	}
 
   return (
     <div className="prod_id">
@@ -56,6 +61,7 @@ function XodimId() {
         </div>
         <div className="pci_btn">
           <button onClick={()=> {navigate("/workers")}}>Ortga</button>
+          <button onClick={() => handleArchive(worker.id)}>Arxivlash</button>
           <button onClick={() => handleRemove(worker.id)}>O'chirish</button>
         </div>
       </div>
