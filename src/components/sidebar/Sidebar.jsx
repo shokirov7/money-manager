@@ -16,7 +16,7 @@ function Sidebar({ role }) {
   const navigate = useNavigate();
   const { loggedIn } = useSelector((state) => state.reducer);
   const token = getItem("token");
-	// const dispatch = useDispatch()
+	const dispatch = useDispatch()
 
   useEffect(() => {
     if (!loggedIn) {
