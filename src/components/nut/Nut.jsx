@@ -8,6 +8,7 @@ import {
   LineElement,
   Legend,
   Tooltip,
+  ArcElement,
 } from "chart.js";
 
 Chart.register(
@@ -16,7 +17,8 @@ Chart.register(
   PointElement,
   LineElement,
   Legend,
-  Tooltip
+  Tooltip,
+  ArcElement
 );
 
 function Nut({diagram}) {

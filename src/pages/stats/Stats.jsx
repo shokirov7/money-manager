@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import BarChart from '../../components/barchart/BarChart'
+import BarChart from '../../components/barchart/BarChart'
 import Button from '../../components/button/Button'
 import Chart from '../../components/chart/Chart'
 import Nut from '../../components/nut/Nut'
@@ -20,7 +20,7 @@ function Stats() {
   const getStats = async e => {
 		e.preventDefault()
 
-		const starting = helperDate.nowDate(start_date ? start_date : '2023-05-06')
+		const starting = helperDate.nowDate(start_date ? start_date : '2022-05-06')
 		const ending = helperDate.nowDate(end_date ? end_date : '2023-07-10')
 
 		const db = {
@@ -98,14 +98,14 @@ function Stats() {
 				<div className='chart_box'>
 					{data && <Chart diagram={data?.filial_diagram} />}
 				</div>
-				{/* <div className='chart_box'>
-					{/* {data && <BarChart diagram={data?.mahsulot_diagram} />} 
-				</div> */}
 				<div className='chart_box'>
-					{/* {data && <PolarChart diagram={data?.filial_diagram} />} */}
+					{data && <BarChart diagram={data?.mahsulot_diagram} />} 
 				</div>
 				<div className='chart_box'>
-					{/* {data && <Nut diagram={data?.mahsulot_diagram} />} */}
+					{data && <PolarChart diagram={data?.filial_diagram} />}
+				</div>
+				<div className='chart_box'>
+					{data && <Nut diagram={data?.mahsulot_diagram} />}
 				</div>
 			</div>
 		</div>

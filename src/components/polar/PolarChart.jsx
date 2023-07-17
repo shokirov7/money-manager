@@ -8,35 +8,42 @@ import {
   LineElement,
   Legend,
   Tooltip,
+  RadialLinearScale, // Import the RadialLinearScale
 } from "chart.js";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend, Tooltip);
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  RadialLinearScale, // Register the RadialLinearScale
+  Legend,
+  Tooltip
+);
 
-function PolarChart({diagram}) {
+function PolarChart({ diagram }) {
   const data = {
-		labels: Object.keys(diagram),
-		datasets: [
-			{
-				label: 'Mahulot nomi',
-				data: Object.values(diagram),
-				backgroundColor: ['#FFE5EE', 'rgba(86, 59, 255, 0.50)'],
-				borderColor: '#000',
-				pointBorderColor: '#3b3b3b',
-				pointBorderWidth: 4,
-				tension: 0.5,
-			},
-		],
-	}
+    labels: Object.keys(diagram),
+    datasets: [
+      {
+        label: "Mahulot nomi",
+        data: Object.values(diagram),
+        backgroundColor: ["rgba(86, 59, 255, 0.50)"],
+        borderColor: "#000",
+        pointBorderColor: "#3b3b3b",
+        pointBorderWidth: 4,
+        tension: 0.5,
+      },
+    ],
+  };
 
   const options = {
     plugins: {
       legend: false,
     },
     scales: {
-      x: {
+      x: { // Use 'r' instead of 'x' for radial scale
         grid: { display: false },
-      },
-      y: {
         min: 2,
         max: 10,
         ticks: {
