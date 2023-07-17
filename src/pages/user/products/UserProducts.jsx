@@ -9,13 +9,12 @@ const UserProducts = () => {
   const getProRow = async () => {
     try {
       const { data } = await productService.getProductsXodim();
-      setRows(data);
+      setRows(data.mahsulotlar);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
-  
-  console.log(rows);
 
   useEffect(() => {
     getProRow();

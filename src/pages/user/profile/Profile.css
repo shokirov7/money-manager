@@ -14,8 +14,8 @@
   line-height: normal;
 }
 .profile_card {
-	width: 320px;
-	height: 400px;
+	width: 400px;
+	height: auto;
 	padding: 20px;
 	background-color: #fff;
 	border: 2px solid #1b1b1b;
@@ -75,4 +75,28 @@
 .form-container{
 	margin-top: 50px !important;
 }
-
+.profile_password{
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+.show_pass{
+	padding: 5px 10px;
+	border: none;
+	font-size: 20px;
+}
+.show_pass:hover{
+	color: #000;
+	background-color: transparent;
+	transform: translate(0);
+	box-shadow: 0 0 0 0;
+}
+.bottom_btns{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.bottom_btns .form-submit-btn{
+	width: auto !important;
+	padding: 10px 10px !important;
+}

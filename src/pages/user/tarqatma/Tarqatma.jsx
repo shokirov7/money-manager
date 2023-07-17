@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import productService from '../../../api/productsApi'
-import UserProducts from '../Products/UserProducts'
 import { columns } from './../tarqatma/TarqatmaTableData'
+import UserProducts from '../products/UserProducts'
 
 const Tarqatma = () => {
 	const [data, setData] = useState([])
 	const getTarqatma = async () => {
 		try {
 			const { data } = await productService.getTarqatmalar()
-			console.log(data)
-			setData(data)
+			console.log(data.details)
+			setData(data.details)
 		} catch (error) {
 			console.log(error.request)
 		}
