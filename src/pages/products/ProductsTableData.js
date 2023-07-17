@@ -26,7 +26,7 @@ const columns = [
     field: "brand",
     headerName: "Mahsulot brendi",
     type: "text",
-    width: 150,
+    width: 200,
   },
 ];
 

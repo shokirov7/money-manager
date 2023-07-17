@@ -4,105 +4,81 @@ import authService from "../../api/axios";
 import { columns } from "./ProductsTableData";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
+import { useDispatch } from "react-redux";
+import {
+  getProductsFailure,
+  getProductsStarted,
+  getProductsSuccess,
+} from "../../reducers/product";
 
 function ProductsTable({ role }) {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
   const [addRow, setAddRows] = useState([]);
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [brand, setBrand] = useState("");
+  const [mainPrice, setMainPrice] = useState("");
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
   const getProducts = async () => {
+    dispatch(getProductsStarted());
     try {
       const { data } = await authService.getProducts();
       setAddRows(data);
     } catch (error) {
-      console.log(error);
+      dispatch(getProductsFailure(error));
     }
   };
-
   useEffect(() => {
     getProducts();
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newRow = {
+      narx1: price,
+      narx2: mainPrice,
+      nom: name,
+      brand: brand,
+      deleted: false,
+    };
+
+    const settingProducts = async (products) => {
+      try {
+        const { data } = await authService.setProducts(products);
+        setAddRows((prew) => [...prew, data]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    settingProducts(newRow);
+    setIsActive(!isActive);
+  };
+
   const handleRow = (item) => {
     const id = item.row.id;
-    navigate(`/filials/${id}`);
+    navigate(`/products/${id}`);
   };
 
   return (
     <div className="">
       <div className="filials">
-        {role === "admin" ? (
-          <div className="add-btn">
-            {isActive ? (
-              <Button
-                onClick={() => {
-                  setIsActive(!isActive);
-                }}
-                text={"Ortga"}
-              />
-            ) : (
-              <Button
-                onClick={() => {
-                  setIsActive(isActive);
-                }}
-                text={"Mahsulot q'oshish"}
-              />
-            )}
-          </div>
-        ) : (
-          ""
-        )}
+        <div className="add-btn">
+          <button
+            onClick={() => {
+              setIsActive(!isActive);
+            }}
+            className="form-submit-btn"
+            type="submit"
+          >
+            {!isActive ? "Ortga" : "Mahsulot qo'shish"}
+          </button>
+        </div>
 
         {isActive ? (
-          <div className="form-container">
-            <div className="logo-container">Mahsulot qo'shish</div>
-            <form className="form">
-              <div className="form-group">
-                <label htmlFor="name">Nomi</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Enter product name"
-                  required=""
-                />
-                <label htmlFor="stock">Ombor</label>
-                <input
-                  type="text"
-                  id="stock"
-                  name="stock"
-                  placeholder="Enter stock amount"
-                  required=""
-                />
-                <label htmlFor="brand">Brend</label>
-                <input
-                  type="text"
-                  id="brand"
-                  name="brand"
-                  placeholder="Enter brand"
-                  required=""
-                />
-                <label htmlFor="date">Sana</label>
-                <input
-                  type="text"
-                  id="date"
-                  name="date"
-                  placeholder="Enter date"
-                  required=""
-                />
-              </div>
-              <button
-                onClick={() => {
-                  setIsActive(false);
-                }}
-                className="form-submit-btn"
-                type="submit"
-              >
-                Qo'shish
-              </button>
-            </form>
-          </div>
-        ) : (
           <div style={{ background: "transparent" }} className="">
             {addRow ? (
               <DataGrid
@@ -125,12 +101,60 @@ function ProductsTable({ role }) {
                   border: "none",
                   fontFamily: "dm-med",
                   fontSize: "18px",
+                  height: "420px",
                   fontWeight: "bold",
                 }}
               />
             ) : (
               <p>Loading...</p>
             )}
+          </div>
+        ) : (
+          <div className="form-container">
+            <div className="logo-container">Mahsulot qo'shish</div>
+            <form className="form" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="name">Nomi</label>
+                <input
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter product name"
+                  required=""
+                />
+                <label htmlFor="stock">Mahsulot Brendi</label>
+                <input
+                  onChange={(e) => setBrand(e.target.value)}
+                  type="text"
+                  id="stock"
+                  name="stock"
+                  placeholder="Enter product brand"
+                  required=""
+                />
+                <label htmlFor="brand">Tannarx</label>
+                <input
+                  onChange={(e) => setPrice(e.target.value)}
+                  type="number"
+                  id="brand"
+                  name="brand"
+                  placeholder="Enter cost price"
+                  required=""
+                />
+                <label htmlFor="date">Sotuvnarx</label>
+                <input
+                  onChange={(e) => setMainPrice(e.target.value)}
+                  type="number"
+                  id="date"
+                  name="date"
+                  placeholder="Enter price"
+                  required=""
+                />
+              </div>
+              <button className="form-submit-btn" type="submit">
+                Qo'shish
+              </button>
+            </form>
           </div>
         )}
       </div>

@@ -1,0 +1,35 @@
+.prod_id {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product_card {
+  width: 320px;
+  height: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #1b1b1b;
+  border-radius: 10px;
+  box-shadow: 4px 4px #1b1b1b;
+}
+.pci_row{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.pci_title{
+    font-family: dm-med;
+    font-size: 18px;
+}
+.pci_value{
+    font-family: roboto-bold;
+    font-size: 18px;
+}
+.pci_btn{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7.5rem;
+}
