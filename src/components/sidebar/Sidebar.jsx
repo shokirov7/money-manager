@@ -26,7 +26,6 @@ function Sidebar({ role }) {
     }
   }, [loggedIn]);
 
-  const dispatch = useDispatch();
   return (
     <div className="sidebar">
       <div className="sidebar_logo">
