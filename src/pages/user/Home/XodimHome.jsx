@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Profitcard from "../../../components/profitcard/Profitcard";
 import Chart from "../../../components/chart/Chart";
 import productService from "../../../api/productsApi";
-import Bar from "../../../components/barchart/BarChart";
+// import Bar from "../../../components/barchart/BarChart";
 import Lastprod from "../../../components/lastprod/Lastprod";
 
 function XodimHome() {
@@ -51,7 +51,7 @@ function XodimHome() {
               </ul>
             </div>
           </div>
-          <Bar />
+          {/* <Bar /> */}
         </div>
       </div>
     </div>

@@ -2,15 +2,18 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Button.css'
 
-function Button({text, go}) {
+function Button({ text, go, click }) {
 	const navigate = useNavigate()
 
-	const handleCLick = ()=>{
+	const handleCLick = () => {
 		navigate(`${go}`)
 	}
 
 	return (
-		<button onClick={handleCLick}>{text}</button>
+		<>
+			{!click && <button onClick={handleCLick}>{text}</button>} ||{' '}
+			<button onClick={click}>{text}</button>
+		</>
 	)
 }
 

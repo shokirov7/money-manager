@@ -5,7 +5,7 @@ import Profitcard from "../../components/profitcard/Profitcard";
 import Chart from "../../components/chart/Chart";
 import authService from "../../api/axios";
 import Lastprod from "../../components/lastprod/Lastprod";
-import Bar from "../../components/barchart/BarChart";
+// import Bar from "../../components/barchart/BarChart";
 import productService from '../../api/productsApi'
 
 function Home() {
@@ -77,7 +77,7 @@ function Home() {
 							</ul>
 						</div>
 					</div>
-					<Bar />
+					{/* <Bar /> */}
 				</div>
 			</div>
 		</div>
